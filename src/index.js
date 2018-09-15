@@ -1,0 +1,32 @@
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import './style.css';
+import Home from './components/Home'
+import About from './components/About'
+import Contact from './components/Contact'
+import Navbar from './components/Navbar'
+import {BrowserRouter, Route } from 'react-router-dom'
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: 'React'
+    };
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+      <div className="container">
+        <Navbar/>
+        <Route exact path="/" component={Home}/>
+        <Route path="/about" component={About}/>
+        <Route path="/contact" component={Contact}/>
+      </div>
+       </BrowserRouter>
+    );
+  }
+}
+
+render(<App />, document.getElementById('root'));
