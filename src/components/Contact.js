@@ -1,5 +1,7 @@
 import React , { Component } from 'react'; 
 import axios from 'axios';
+import {NavLink, Link} from 'react-router-dom'
+import { Card } from '@material-ui/core';
 
 class Contact extends Component {
 
@@ -18,15 +20,21 @@ class Contact extends Component {
 
 render(){
   const { posts } = this.state; 
+  console.log(posts)
   return(
     <div>
-        <ul>
+   
 
        {posts.length ?  ( 
          
          posts.map( (post , i) =>{
          
-           return  <li key={i}>{post.title}</li>
+           return  <div className="post card">
+       
+           
+           <h3 key={i}  ><a href= {'/' + post.id}>{post.title}</a></h3>
+
+              </div>  
           })
           ) : (
             <p>Loading...</p>
@@ -34,7 +42,7 @@ render(){
         
         
         }
-        </ul>
+     
     </div>
   )
 }
