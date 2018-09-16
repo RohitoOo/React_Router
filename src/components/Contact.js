@@ -1,17 +1,43 @@
-import React from 'react'; 
+import React , { Component } from 'react'; 
+import axios from 'axios';
 
+class Contact extends Component {
 
-const Contact = () => {
+  state = {
+    posts : []
+  };
+
+  componentDidMount(){
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+    .then(res => {
+      this.setState({
+        posts : res.data.slice(0,10)
+      })
+    })
+  }
+
+render(){
+  const { posts } = this.state; 
   return(
-    <div className="container">
-      <h2>Contact Page
-      </h2>
-      <p>
-        Call Me Maybe - +1 6479651186
+    <div>
+        <ul>
 
-      </p>
+       {posts.length ?  ( 
+         
+         posts.map( (post , i) =>{
+         
+           return  <li key={i}>{post.title}</li>
+          })
+          ) : (
+            <p>Loading...</p>
+          )
+        
+        
+        }
+        </ul>
     </div>
   )
+}
 }
 
 export default Contact;
