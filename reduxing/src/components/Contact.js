@@ -20,8 +20,8 @@ class Contact extends Component {
 
 render(){
 
-  const { posts } = this.state; 
-  console.log(this.props)
+  const { posts } = this.props; 
+  console.log("PRops" , this.props)
   return(
     <div className="container">
        {posts.length ?  (     
@@ -46,4 +46,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default Contact;
+export default connect(mapStateToProps)(Contact);
