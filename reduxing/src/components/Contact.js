@@ -8,26 +8,20 @@ class Contact extends Component {
   state = {
     posts : []
   };
-  // componentDidMount(){
-  //   axios.get('https://jsonplaceholder.typicode.com/posts')
-  //   .then(res => {
-  //     this.setState({
-  //       posts : res.data.slice(0,10)
-  //     })
-  //   })
-  // }
-
 
 render(){
 
+
   const { posts } = this.props; 
-  console.log("PRops" , this.props)
+
   return(
     <div className="container">
        {posts.length ?  (     
          posts.map( (post , i) =>{    
            return  <div className="container">
-           <h3 key={i}><a href= {'/' + post.id}>{post.title}</a></h3>
+           <h3 key={i}><a href= {'/' + post.id}>{post.title}</a> 
+           </h3>
+           
               </div>  
           })
           ) : (
@@ -45,5 +39,8 @@ const mapStateToProps = (state) => {
     posts : state.posts
   }
 }
+
+
+
 
 export default connect(mapStateToProps)(Contact);

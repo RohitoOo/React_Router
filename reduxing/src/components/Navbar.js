@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import {Link, NavLink, withRouter} from 'react-router-dom';
 
 const Navbar = (props) => {
-console.log(props)
   return(
     <div className="container">
        <AppBar position="static" color="primary">
